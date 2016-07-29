@@ -68,14 +68,6 @@ app.post('/ajax/authenticate',function (req, res) {
 
 app.post('/ajax/register',function (req, res) {
 
-
-
-    User.update_(1234, {
-        u_name: 'mike'
-    }, function(error, noa){
-
-    })
-
    User.register({
         u_accountName:req.body.u_accountName,
         u_pwd:req.body.u_pwd,

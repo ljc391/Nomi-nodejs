@@ -33,6 +33,7 @@ UserSchema.statics.register = function(userData, callback) {
                             if (callback) callback(null,_user)
                         }
                     });
+
                 }
             });
         }

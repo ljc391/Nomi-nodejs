@@ -1,42 +1,38 @@
-<!DOCTYPE html>
+    <%
+      if (!user){
+        %>
+        res.render('anonymous',{
+
+       });        <%
+      }
+      %>
+
 <html>
 <head>
     <title>Nomi in the House~</title>
-    <% include _headCommon %>
-    <style type="text/css">
-    .forsignup{
-        display: none;
-    }
-    </style>
+        <% include _headCommon %>
 
 </head>
 <body>
-    <div class="container-fluid Homepic"  align="center">
 
-        <h1>Nomi in the House</h1>
-        <a href="#logout">logout</a>
+
+
+    <% include _navbar %>
+
+    <div class = "container content" align = "center">
+
+
+
 
 
     </div>
 
+
+
     <% include _footer %>
     <% include _scripts %>
 
-    <script type="text/javascript">
-    $(function(){
 
-
-        //home pic size
-        var $w = $( document ).width();
-        var $r = $w/1275;
-        var $h = $r*700;
-        var $h2 = $( document ).height()-30;
-        $('.Homepic').css({height:$h2+'px'});
-
-
-    });
-
-    </script>
 
 </body>
 </html>

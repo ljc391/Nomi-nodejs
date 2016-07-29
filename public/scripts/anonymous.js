@@ -103,11 +103,11 @@ $(function(){
 					if (response.success){
                         location.reload();
                     }else{
-                        alert(response.message);
+                        console.log(response);
                     }
 				},
 				error: function(error){
-                    alert(error)
+                   console.log(error);
 				}
 
 			});
