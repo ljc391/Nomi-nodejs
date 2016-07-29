@@ -1,0 +1,373 @@
+@media (max-width: 480px) {
+
+  .navbar{
+    display: -webkit-flex;
+    display: flex;
+  }
+  .Homepic h1{
+    font-size: 25px;
+  }
+  .navbar{
+    display: -webkit-flex;
+    display: flex;
+  }
+
+.imgcontainer {
+  margin-top: 50px;
+}
+  .imgcontainer h1{
+  }
+  .imgcontainer a{
+    font-size: 25px;
+
+  }
+  .imgcontainer p{
+    font-size: 20px;
+  }
+  .singlecontent a{
+
+      font-size: 25px;
+
+  }
+  .singlecontent p{
+
+  font-size: 20px;
+
+
+}
+  #page-wrap h2{
+  font-size: 25px;
+  font-weight: bold;
+
+  font-family: "Lucida Grande", Tahoma;
+}
+#page-wrap p{
+
+  font-size: 20px;
+  font-family: "Lucida Grande", Tahoma;
+
+
+
+
+}
+
+
+}
+@media (min-width: 481px) and (max-width: 767px) {
+
+  .Homepic h1{
+
+    font-size: 30px;
+  }
+  .navbar{
+    display: -webkit-flex;
+    display: flex;
+  }
+   .nomisear{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  }
+  .imgcontainer {
+    margin-top: 50px;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .navbar{
+    display: -webkit-flex;
+    display: flex;
+  }
+  .Homepic h1{
+
+    font-size: 35px;
+  }
+   .nomisear{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  }
+    .imgcontainer {
+    margin-top: 50px;
+  }
+
+
+}
+
+@media (min-width: 980px) {
+  .navbar{
+    display: -webkit-flex;
+    display: flex;
+  }
+  .Homepic h1{
+    font-size: 40px;
+  }
+  .nomibtn{
+
+  }
+  .nomiimg{
+
+  }
+  .nomisear{
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  }
+  .imgcontainer {
+  margin-top: 20px;
+  }
+  .singlecontent p{
+    font-size: 30px;
+  }
+
+
+
+}
+
+  .Homepic {
+
+
+    background-image: url("../image/nomihp1.jpg");
+  }
+.Homepic h1{
+  font-weight: bold;
+
+  margin-top: 100px;
+  font-family: "Lucida Grande", Tahoma;
+}
+
+.Homepic .createform{
+  text-align : left;
+  margin-top: 50px;
+  width: 300px;
+  font-size: 16px;
+  font-family: "Lucida Grande", Tahoma;
+}
+.Homepic .createform .btn{
+  width: 300px;
+  margin-top: 10px;
+}
+
+.Homepic .createform span{
+  color: red;
+}
+.Homepic .createform a{
+  color: gray;
+}
+.Homepic .createform a:hover{
+  text-decoration: none;
+  color: black;
+}
+.Homepic .form-control{
+  height: 45px;
+  border-radius: 0px;
+ border-width: 0.5px;
+}
+
+.navbar  {
+  background-color: #FFCC00;
+  border-width: 0px;
+
+}
+.navbar  .navbar-left{
+  padding-left: 30px;
+}
+.navbar  .navbar-left a {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Lucida Grande", Tahoma;
+}
+.navbar  .navbar-left a:hover {
+  text-decoration: none;
+}
+.navbar  input{
+  display: inline;
+}
+.navbar-right{
+  padding-right: 30px;
+}
+.navbar-nav .navbar-header img{
+  margin-left: 30px;
+  padding-left: 30px;
+}
+.navbar-nav  .dropdown a{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.navbar-nav  .dropdown a:hover { background-color: #FFCC00; }
+.navbar-nav .dropdown a:visited { background-color: #FFCC00; }
+.navbar-nav .dropdown a:link:; { background-color: #FFCC00; }
+.navbar-nav .dropdown .dropdown-menu li{ height: 20px; }
+.footer{
+  width: 100%;
+  font-family: 'Raleway', sans-serif;
+  text-align : center;
+  background-color: black;
+  color: white;
+  clear:both;
+  text-align:center;
+  font-weight: bold;
+
+}
+
+
+
+.content{
+  padding-top: 10px;
+  text-align: center;
+}
+.postform{
+  display: inline-block;
+  text-align : center;
+  margin-top: 50px;
+  width: 600px;
+  font-size: 16px;
+  font-family: "Lucida Grande", Tahoma;
+  background-color: #ffe066;
+  border-radius: 10px;
+}
+
+
+.postform #title{
+  margin-left: 50px;
+  margin-top: 40px;
+  width: 500px;
+  border: 0px;
+  border-radius: 10px;
+
+}
+.postform textarea{
+  margin-top: 10px;
+  margin-left: 50px;
+  width: 500px;
+  border: 0px;
+  border-radius: 10px;
+}
+.postform input{
+  margin-top: 10px;
+  margin-left: 50px;
+}
+.postform button{
+  margin-bottom: 40px;
+}
+
+.imgcontainer {
+  overflow: hidden;
+  max-width: 100%;
+  width: 500px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: lightgray;
+
+  font-family: "Lucida Grande", Tahoma;
+}
+.imgcontainer p{
+   font-size: 20px;
+}
+.imgcontainer a:hover{
+  text-decoration: none;
+}
+  .imgcontainer span img{
+    width: 40px;
+
+    cursor:pointer;
+
+  }
+.imgcontainer img{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+
+
+
+  }
+
+  .singlecontent {
+    padding-top: 100px;
+    max-width: 100%;
+    width: 500px;
+
+
+}
+.singlecontent h1{
+
+  font-weight: bold;
+  font-family: "Lucida Grande", Tahoma;
+
+
+
+}
+.singlecontent p{
+
+  font-family: "Lucida Grande", Tahoma;
+
+
+
+}
+.singlecontent img{
+  width: 100%;
+}
+.singlecontent span img{
+    width: 40px;
+
+    cursor:pointer;
+
+  }
+.footer p{
+  margin-top: 40px;
+  vertical-align: middle;
+}
+
+.singlecontent #fcom{
+  cursor:pointer;
+}
+.list-group{
+  text-align: left;
+}
+
+#messagecon {
+  margin-top: 200px;
+}
+
+#page-wrap{
+  max-width: 100%;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 2px solid  #FFCC00;
+
+  width: 600px;
+
+  padding-bottom: 50px;
+}
+#page-wrap h2{
+  font-size: 50px;
+  font-weight: bold;
+
+  font-family: "Lucida Grande", Tahoma;
+}
+#page-wrap p{
+
+  font-size: 18px;
+  font-family: "Lucida Grande", Tahoma;
+
+
+
+
+}
+#chat-wrap                      { border: 1px solid #eee; margin: 0 0 15px 0;}
+#chat-area                      {  text-align: left; height: 300px; overflow: auto; border: 0px solid #666; padding: 20px; background: white; }
+#chat-area span                 { color: white; background: #333; padding: 4px 8px; -moz-border-radius: 5px; -webkit-border-radius: 8px; margin: 0 5px 0 0; }
+#chat-area p                    { padding: 8px 0; border-bottom: 1px solid #ccc; }
+
