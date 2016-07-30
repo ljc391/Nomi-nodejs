@@ -6,6 +6,7 @@ mongoose.connect("mongodb://localhost:27017/nomi");
 var connection = mongoose.connection;
 
 var User = require('./schema/User');
+var Content = require('./schema/Content');
 
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
@@ -77,16 +78,46 @@ app.post('/ajax/register',function (req, res) {
         if (error){
             res.json({success: false, error: error, message:'something went wrong'});
         }else{
-            req.session.user = user;
+            req.user = user;
             res.json({success:true, user:user});
         }
     });
 });
 
 
+
 app.post('/ajax/unauthenticate',function (req, res) {
    req.session.user = null;
    res.json({ success: true});
+});
+
+
+app.post('/ajax/postForm',function (req, res) {
+
+   Content.postContext({
+        c_title:req.body.title,
+        c_text:req.body.content,
+        user:req.session.user
+    }, function(error, content){
+        if (error){
+            res.json({success: false, error: error, message:'something went wrong!'});
+        }else{
+            res.json({success:true, content:content});
+        }
+    });
+});
+
+
+app.get('/ajax/loadContent',function (req, res) {
+
+   Content.loadContext(
+     function(error, content){
+        if (error){
+            res.json({success: false, error: error, message:'something went wrong!'});
+        }else{
+            res.json({success:true, content:content});
+        }
+    });
 });
 
 

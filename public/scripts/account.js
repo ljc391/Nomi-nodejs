@@ -13,10 +13,9 @@ $(function(){
 
 		function postForm(title, content){
 			$.ajax({
-				url:'./postapi.php',
+				url:'./ajax/postForm',
 				method:'POST',
 				data:{
-					action:'postForm',
 					title:title,
 					content:content
 				},
@@ -24,18 +23,49 @@ $(function(){
 				success: function(response){
 					if (response.success){
 
-						//console.log(response.success);
+						console.log(response.success);
+						console.log(response.content);
 						//console.log(response.message);
 					}else{
 
-						//console.log("err");
+						console.log("err");
 
 						alert(response.message);
 					}
 				},
 				error: function(response){
-					//console.log("errs");
+					console.log("errs");
 					//console.log(response.message);
+				}
+
+			});
+		}
+		loadContent();
+		function loadContent(postId){
+			console.log('here');
+			$.ajax({
+				url:'./ajax/loadContent',
+				method:'GET',
+				data:{
+				},
+				dataType:'json',
+				success: function(response){
+					if (response.success){
+						console.log('loadContent');
+						console.log(response);
+
+
+
+					}else{
+						console.log('err1');
+					}
+				},
+				error: function(response){
+					//var l = $('.list-group-item').length;
+ 					//$('.list-group-item').slice(1, l).remove();
+ 					console.log('err2');
+ 					console.log(response);
+
 				}
 
 			});
