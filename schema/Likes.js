@@ -8,4 +8,28 @@ var LikesSchema = new Schema({
 },{ collection:'Likes'});
 
 
-module.exports = mongoose.model('Likes', LikesSchema);
+UserSchema.statics.findlikes = function(user,content) {
+    Model.findOne({ {user: user},{content: content}}, function(err, user) {
+
+        if (err) {
+            callback(err);
+        } else  if (!user) {
+            callback(null);
+        }else{
+                 if (!isMatch) {
+                    console.log('no match');
+                    callback(new Error('no match'));
+                }else{
+                    console.log('ismatch');
+                    callback(null, user);
+                }
+
+        }
+    })
+};
+
+
+var Model = mongoose.model('Likes', LikesSchema);
+
+
+module.exports = Model;

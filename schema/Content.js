@@ -23,7 +23,7 @@ ContentSchema.statics.postContext = function(contentData, callback) {
 
 };
 
-ContentSchema.statics.loadContext = function(contentData, callback) {
+ContentSchema.statics.loadContent = function(contentData, callback) {
 
     Model.find({}).exec(function (error, content) {
         if (error){

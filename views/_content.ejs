@@ -1,0 +1,30 @@
+<div class = "container-fluid imgcontainer" aria-hidden="true">
+    <img src="" id ="contimg" >
+    <h1><a href="" data-postId="0" ></a></h1>
+    <p> </p>
+
+    <span>
+    <?php
+        if($l_date){
+
+
+    ?>
+            <a href="#likeContent" data-postId=" " ><img id ="like" src="image/like.png" width ="30px"></a>
+
+    <?php
+
+        }else{
+    ?>
+            <a href="#likeContent" data-postId="" ><img id ="like" src="image/dlike.png" width ="30px"></a>
+    <?php
+
+        }
+
+    ?>
+
+
+
+        <a href="#postComment" data-postId=" " ><img src="image/com.png" width ="30px"></a>
+    </span>
+
+</div>

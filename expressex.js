@@ -110,7 +110,7 @@ app.post('/ajax/postForm',function (req, res) {
 
 app.get('/ajax/loadContent',function (req, res) {
 
-   Content.loadContext(
+   Content.loadContent({},
      function(error, content){
         if (error){
             res.json({success: false, error: error, message:'something went wrong!'});
@@ -119,7 +119,17 @@ app.get('/ajax/loadContent',function (req, res) {
         }
     });
 });
+app.get('/ajax/findlikes',function (req, res) {
 
+   Likes.findlikes({},
+     function(error, content){
+        if (error){
+            res.json({success: false, error: error, message:'something went wrong!'});
+        }else{
+            res.json({success:true, content:content});
+        }
+    });
+});
 
 var server = app.listen(8081, function () {
 

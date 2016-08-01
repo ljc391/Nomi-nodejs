@@ -41,7 +41,7 @@ $(function(){
 			});
 		}
 		loadContent();
-		function loadContent(postId){
+		function loadContent(){
 			console.log('here');
 			$.ajax({
 				url:'./ajax/loadContent',
@@ -52,9 +52,18 @@ $(function(){
 				success: function(response){
 					if (response.success){
 						console.log('loadContent');
-						console.log(response);
-
-
+						console.log(response.content[0]);
+						$cimg = $('<img>').attr("src",response.content[0].c_img);
+						$a = $('<a>').html(response.content[0].c_title);
+						$a.attr("data-postId",response.content[0]._id );
+						var url = "content-"+response.content[0]._id;
+						$a.attr("href", url);
+						$h1 = $('<h1>').append($a);
+						$p = $('<p>').html(response.content[0].c_text);
+						findlikes(user,content[0]);
+						$div = $('<div>').addClass('container-fluid imgcontainer');
+						$div.append($cimg).append($h1).append($p);
+						$div.insertAfter($('.imgcontainer'));
 
 					}else{
 						console.log('err1');
@@ -69,6 +78,30 @@ $(function(){
 				}
 
 			});
+		}
+		function findlikes(user, content){
+			$.ajax({
+				url:'./ajax/findlikes',
+				method:'GET',
+				data:{
+					user:user,
+					content:content
+				},
+				dataType:'json',
+				success: function(response){
+					if (response.success){
+						console.log("find");
+					}else{
+						alert(response.message)
+					}
+				},
+				error: function(){
+						console.log("error");
+				}
+
+			});
+
+
 		}
 
 
@@ -205,7 +238,7 @@ $(function(){
 			});
 		}
 
-        setInterval(usertimestamp, 5000);
+        //setInterval(usertimestamp, 5000);
 		function usertimestamp(){
 			$.ajax({
 				url:'./postapi.php',
@@ -289,7 +322,7 @@ $(function(){
 
 			       notifyuser();
 
-			       if (notifyUserTimer==null) notifyUserTimer = setInterval(notifyuser, 15000);
+			       //if (notifyUserTimer==null) notifyUserTimer = setInterval(notifyuser, 15000);
 
 			   },
 			});
