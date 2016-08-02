@@ -52,19 +52,30 @@ $(function(){
 				success: function(response){
 					if (response.success){
 						console.log('loadContent');
-						console.log(response.content[0]);
+						//console.log(response.content[0]);
 						$cimg = $('<img>').attr("src",response.content[0].c_img);
 						$a = $('<a>').html(response.content[0].c_title);
-						$a.attr("data-postId",response.content[0]._id );
+						$a.attr("data-postId",response.content[0]);
 						var url = "content-"+response.content[0]._id;
 						$a.attr("href", url);
 						$h1 = $('<h1>').append($a);
 						$p = $('<p>').html(response.content[0].c_text);
-						findlikes(user,content[0]);
-						$div = $('<div>').addClass('container-fluid imgcontainer');
-						$div.append($cimg).append($h1).append($p);
-						$div.insertAfter($('.imgcontainer'));
+						//findlikes(content[0]);
 
+						$img2 = $('<img>').attr('src',"image/like.png");
+						$img2.width(30);
+						$a2 = $('<a>').attr('data-postId',JSON.stringify( response.content[0]));
+
+						$a2.attr('href',"#likeContent");
+						$a2.append($img2);
+
+
+						$div = $('<div>').addClass('container-fluid imgcontainer');
+						$div.append($cimg).append($h1).append($p).append($a2);
+						$div.insertAfter($('.imgcontainer'));
+						findlikes(response.content[0]);
+						//console.log(response.content[0]);
+						//li(response.content[0]);
 					}else{
 						console.log('err1');
 					}
@@ -79,24 +90,28 @@ $(function(){
 
 			});
 		}
-		function findlikes(user, content){
+
+		function findlikes(content){
+
+			console.log(content);
 			$.ajax({
 				url:'./ajax/findlikes',
 				method:'GET',
 				data:{
-					user:user,
 					content:content
 				},
 				dataType:'json',
 				success: function(response){
 					if (response.success){
 						console.log("find");
+						console.log(response);
 					}else{
 						alert(response.message)
 					}
 				},
-				error: function(){
-						console.log("error");
+				error: function(response){
+						console.log("error likes");
+						console.log(response);
 				}
 
 			});
@@ -395,18 +410,54 @@ $(function(){
 			});
 			//setTimeout(notifyuser(postId), 15000); // Every 15 seconds.
 		}
+		/*
+		function li(content){
+			//console.log(content);
+			$.ajax({
+				url:'/ajax/likes',
+				method:'POST',
+				data:{
+					content:JSON.stringify( content)
+				},
+				dataType:'json',
+				success: function(response){
+					if (response.success){
+						console.log("ulike!");
+						console.log(response);
+						//console.log(response.data);
+						//console.log(response.message);
+						//var images = $this.find('img');
+					    //images.attr('src','image/dlike.png');
 
+					}else{
+						console.log("like!");
+						//console.log(response.data);
+						//console.log(response.message);
+						//var images = $this.find('img');
+					    //images.attr('src','image/like.png');
 
+					    //images.animate({width: '50px'}).animate({width:'40px'});
+
+					}
+				},
+				error: function(response){
+					console.log(response);
+						console.log("error22");
+				}
+
+			});
+		}
+*/
 		$('a[href="#likeContent"]').on('click', function(e){
+			console.log("likes");
 			e.preventDefault();
 			$this = $(this);
 			var postId = $(this).attr('data-postId');
 			$.ajax({
-				url:'./postapi.php',
+				url:'/ajax/likes',
 				method:'POST',
 				data:{
-					action:'likeContent',
-					postId:postId
+					content:JSON.stringify( content)
 				},
 				dataType:'json',
 				success: function(response){

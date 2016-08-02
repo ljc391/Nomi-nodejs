@@ -8,25 +8,34 @@ var LikesSchema = new Schema({
 },{ collection:'Likes'});
 
 
-UserSchema.statics.findlikes = function(user,content) {
-    Model.findOne({ {user: user},{content: content}}, function(err, user) {
+LikesSchema.statics.findlikes = function(user,content,callback) {
+    Model.findOne({user: user}, function(err, Likes) {
+          callback(null, Likes);
 
-        if (err) {
-            callback(err);
-        } else  if (!user) {
-            callback(null);
-        }else{
-                 if (!isMatch) {
-                    console.log('no match');
-                    callback(new Error('no match'));
-                }else{
-                    console.log('ismatch');
-                    callback(null, user);
-                }
-
-        }
-    })
+});
 };
+
+
+LikesSchema.statics.likescontent = function(likesData, callback){
+
+           // if (callback) callback(null,likesDate);
+     ///      if(!likesData){
+        //        if (callback) callback("error");
+          // }else{
+            //    if (callback) callback(null,likesData)
+          // }
+    var likes = new Model(likesData);
+
+    likes.save(function(error, likes) {
+        if (error){
+            if (callback) callback(error)
+        }else{
+            if (callback) callback(null,likes)
+        }
+    });
+
+
+}
 
 
 var Model = mongoose.model('Likes', LikesSchema);

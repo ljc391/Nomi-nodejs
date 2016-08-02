@@ -7,7 +7,9 @@ var connection = mongoose.connection;
 
 var User = require('./schema/User');
 var Content = require('./schema/Content');
+var Likes = require('./schema/Likes');
 
+var Content = require('./schema/Content');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
@@ -106,6 +108,21 @@ app.post('/ajax/postForm',function (req, res) {
         }
     });
 });
+app.post('/ajax/likes',function (req, res) {
+
+
+   Likes.likescontent({
+        user:req.session.user,
+        content: JSON.parse(req.body.content)
+    }, function(error, likes){
+
+        if (error){
+            res.json({success: false, error: error, message:'something went wrong!'});
+        }else{
+            res.json({success:true, user:likes.user, content:likes.content});
+        }
+    });
+});
 
 
 app.get('/ajax/loadContent',function (req, res) {
@@ -115,20 +132,19 @@ app.get('/ajax/loadContent',function (req, res) {
         if (error){
             res.json({success: false, error: error, message:'something went wrong!'});
         }else{
-            res.json({success:true, content:content});
+            res.json({success:true, content:content, user:req.session.user});
         }
     });
 });
 app.get('/ajax/findlikes',function (req, res) {
-
-   Likes.findlikes({},
+  res.json({success: true, message:JSON.parse(req.body.content)});
+/*
+  Likes.findlikes({user:req.session.user}, {content:JSON.parse(req.body.content)},
      function(error, content){
-        if (error){
-            res.json({success: false, error: error, message:'something went wrong!'});
-        }else{
-            res.json({success:true, content:content});
-        }
+        res.json({success: true, message:'find!!', content:content});
     });
+*/
+
 });
 
 var server = app.listen(8081, function () {
